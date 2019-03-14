@@ -1,0 +1,15 @@
+use-project
+	/CIL :
+	../.. ;
+
+project
+	CIL_Test_Interlocked :
+	requirements
+		<library>/CIL//CIL
+		<threading>multi :
+	build-dir
+		!-Bin ;
+
+exe
+	Main :
+	Main.cpp [ glob *.cpp ] ;

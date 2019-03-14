@@ -1,0 +1,25 @@
+use-project
+	/CIL
+	:
+	../..
+	;
+
+project
+	CIL_Test_Object
+	:
+	requirements
+		<library>/CIL//CIL
+		<threading>multi
+	:
+	build-dir
+		!-Bin
+	:
+	default-build
+		<toolset>gcc #<target-os>cygwin
+	;
+
+exe
+	Main
+	:
+	[ glob Game/*.cpp ] [ glob *.cpp ] Main.cpp
+	;

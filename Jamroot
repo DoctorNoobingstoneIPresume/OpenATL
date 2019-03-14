@@ -1,0 +1,48 @@
+##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+## 
+##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+#echo "ComIsLove: Hi..." ;
+
+module CIL
+{
+	BOOST_ROOT = [ modules.peek : BOOST_ROOT ] ;
+	
+	echo "BOOST_ROOT is \"$(BOOST_ROOT)\" !" ;
+	
+	reqs =
+		<include>$(BOOST_ROOT)
+		<include>Inc
+		<define>NOMINMAX
+		;
+	
+	#echo "ComIsLove        reqs:" $(reqs) "..." ;
+}
+
+project
+	CIL
+	:
+	requirements
+		[ modules.peek CIL : reqs ]
+	:
+	default-build
+		<toolset>gcc #<target-os>cygwin
+		#<toolset>borland
+	:
+	usage-requirements
+		[ modules.peek CIL : reqs ]
+	:
+	build-dir
+		!-Bin
+	;
+
+lib
+	CIL
+	:
+	[ glob Src/CIL/*.cpp ]
+	#/boost/system//boost_system/<link>static
+	:
+	#<library>/boost/system//boost_system/<link>static
+	<threading>multi
+	<link>static
+	;
