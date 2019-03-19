@@ -157,7 +157,7 @@ CIL_NAMESPACE_BEGIN (CIL)
 
 	#define CIL_EXTERN_C       extern
 	#define CIL_EXTERN_C_BEGIN
-	#define CIL_EXTERN_C_END   }
+	#define CIL_EXTERN_C_END
 
 #endif
 
