@@ -1,5 +1,14 @@
 ##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+## COM Is Love (CIL) aka OpenATL:
 ## 
+## This project offers support for Interface-Based Programming
+## compatible with COM (Component Object Model)
+## similarly to a subset of Microsoft's Active Template Library (ATL).
+## 
+## It wishes to allow various ATL-based projects
+## to be built using other toolchains and for other platforms.
+## 
+## Contact: adder (underscore) 2003 (at) yahoo (dot) com. Thank you ! (-:
 ##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 #echo "ComIsLove: Hi..." ;
@@ -11,9 +20,9 @@ module CIL
 	echo "BOOST_ROOT is \"$(BOOST_ROOT)\" !" ;
 	
 	reqs =
-		<include>$(BOOST_ROOT)
-		<include>Inc
-		<define>NOMINMAX
+		<include>"$(BOOST_ROOT)/"
+		<include>"Inc/"
+		<define>"NOMINMAX"
 		;
 	
 	#echo "ComIsLove        reqs:" $(reqs) "..." ;
@@ -33,16 +42,19 @@ project
 		[ modules.peek CIL : reqs ]
 	:
 	build-dir
-		!-Bin
+		"_Bin"
 	;
 
 lib
 	CIL
 	:
-	[ glob Src/CIL/*.cpp ]
+	[ glob "Src/CIL/*.cpp" ]
 	#/boost/system//boost_system/<link>static
 	:
 	#<library>/boost/system//boost_system/<link>static
 	<threading>multi
 	<link>static
 	;
+
+build-project "Tests/Interlocked/" ;
+build-project "Tests/Object/"      ;

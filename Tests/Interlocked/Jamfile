@@ -1,0 +1,13 @@
+#use-project
+#	/CIL :
+#	../../ ;
+
+project
+	CIL_Test_Interlocked :
+	requirements
+		<library>/CIL//CIL
+		<threading>multi ;
+
+exe
+	"Main" :
+	"Main.cpp" [ glob "*.cpp" ] ;
