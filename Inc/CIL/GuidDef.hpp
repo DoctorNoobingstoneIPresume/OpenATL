@@ -115,12 +115,12 @@ CIL_NAMESPACE_BEGIN (Handy)
 
 #if defined (CIL_INITGUID)
 
-	#define CIL_DEFINE_GUID(name, dw, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \
-		CIL_EXTERN_C const CIL::Handy::GUID name = { dw, w1, w2, { b1, b2, b3, b4, b5, b6, b7 }  }
+	#define CIL_DEFINE_GUID(name, dw, w0, w1, b0, b1, b2, b3, b4, b5, b6, b7) \
+		CIL_EXTERN_C const CIL::Handy::GUID name = { dw, w0, w1, { b0, b1, b2, b3, b4, b5, b6, b7 }  }
 
 #else
 
-	#define CIL_DEFINE_GUID(name, dw, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \
+	#define CIL_DEFINE_GUID(name, dw, w0, w1, b0, b1, b2, b3, b4, b5, b6, b7) \
 		CIL_EXTERN_C const CIL::Handy::GUID name
 
 #endif
